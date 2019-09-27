@@ -1,0 +1,1177 @@
+@page: pseudo-class {
+    size: A4;
+    margin: 0;
+}
+
+@page {
+    size: auto;
+    margin: 4mm;
+}
+
+@media screen {
+    #print {
+        display: none;
+    }
+}
+
+@media print {
+    * {
+        box-sizing: border-box;
+    }
+
+    .page {
+        margin: 0;
+        page-break-after: always;
+    }
+
+    // 打印报表
+    .printReport {
+        font-size: 9pt;
+        margin-left: -7%;
+        padding-top: 10pt;
+        transform: scale(0.85, 1);
+
+        .select-date {
+            float: left;
+            padding: 10px 0;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding-top: 10px;
+        }
+
+        tr td {
+            font-weight: normal !important;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #666;
+            padding: 10px;
+            min-height: 40px;
+            font-size: 9pt;
+
+            &.total {
+                background-color: oldlace;
+            }
+        }
+
+        table {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .print-date {
+            float: right;
+            padding-top: 15px;
+        }
+    }
+
+    // 病历+处方
+    .print {
+        h1 {
+            margin: 0;
+        }
+
+        .footer {
+            text-align: left;
+            position: absolute;
+            width: calc(100% - 32pt);
+            bottom: 50pt;
+        }
+
+        .page {
+            height: 100%;
+            font-size: 14pt;
+            padding-top: 5pt;
+            position: relative;
+        }
+
+        // 病历单
+        &.outpatient {
+            width: auto;
+            height: 100%;
+            margin: 0 5pt;
+
+            h1,
+            h2 {
+                font-size: 18pt;
+                text-align: center;
+                line-height: 32pt;
+            }
+
+            .page {
+                .header {
+                    border-bottom: 1px solid #000;
+
+                    div {
+                        padding-bottom: 5pt;
+
+                        span {
+                            display: inline-block;
+
+                            &.w50 {
+                                width: 50%;
+                            }
+
+                            &.w48 {
+                                width: 48%;
+                            }
+
+                            &.w24 {
+                                width: 24%;
+                            }
+                        }
+                    }
+                }
+
+                .main {
+                    .basic {
+                        margin: 10pt 0;
+
+                        span {
+                            display: inline-block;
+                            width: 32%;
+                        }
+                    }
+
+                    .item {
+                        margin-bottom: 10pt;
+
+                        span {
+                            line-height: 16pt;
+
+                            &.label {
+                                font-size: 14pt;
+                                font-weight: bold;
+                            }
+
+                            &.content {
+                                color: #333;
+                                font-size: 12pt;
+                            }
+                        }
+
+                        code {
+                            padding: 5px 15px;
+                            margin-top: 5px;
+                            margin-bottom: 0;
+                        }
+
+                        &.allergies {
+                            span {
+                                color: red;
+                                font-weight: bold;
+                            }
+                        }
+
+                        .live {
+                            span {
+                                display: inline-block;
+                                width: 32%;
+                            }
+                        }
+                    }
+                }
+
+                .footer {
+                    ul>li {
+                        display: inline-block;
+                        width: 38%;
+                        height: 32pt;
+                        line-height: 32pt;
+                        vertical-align: top;
+
+                        &:first-child,
+                        &:last-child {
+                            width: 30%;
+                        }
+
+                        span {
+                            display: block;
+                            padding: 5pt 0;
+                            width: 100%;
+                            line-height: 16pt;
+
+                            &.line {
+                                width: 150pt;
+                                height: 26pt;
+                                border-bottom: 1px solid #000;
+                            }
+                        }
+                    }
+                }
+
+                .qrcode {
+                    .qrcode-item {
+                        width: 50%;
+                        float: left;
+                        text-align: center;
+                        margin-bottom: 10pt;
+
+                        span {
+                            display: block;
+                            width: 100%;
+                            line-height: 24pt;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 处方
+        &.recipe {
+            width: 100%;
+            height: 100%;
+
+
+            .page {
+                font-family: '宋体';
+                font-size: 15pt;
+
+                .recipe-class {
+                    text-align: right;
+                    margin-right: 20pt;
+
+                    span {
+                        display: inline-block;
+                        border: 1px solid #000;
+                        padding: 5pt 10pt;
+                    }
+                }
+
+                h1,
+                h2 {
+                    font-size: 26pt;
+                    line-height: 35pt;
+                    text-align: center;
+                }
+
+                .main {
+                    .card {
+                        line-height: 32pt;
+                    }
+
+                    .info {
+                        padding: 10pt 0;
+                        border-top: 1px solid #000;
+                        border-bottom: 1px solid #000;
+
+                        div {
+                            overflow: hidden;
+                            zoom: 1;
+                        }
+
+                        span {
+                            display: block;
+                            float: left;
+                            line-height: 26pt;
+                            font-weight: normal;
+                        }
+
+                        .w4 {
+                            span {
+                                width: 25%;
+                            }
+                        }
+
+                        .w1 {
+                            span {
+                                width: 100%;
+                            }
+                        }
+
+                        .w3 {
+                            span {
+                                width: 36%;
+
+
+                                &:last-child {
+                                    width: 28%;
+                                }
+                            }
+                        }
+
+                        .w2 {
+                            span {
+                                width: 80%;
+                            }
+                        }
+                    }
+
+                    .list {
+                        font-size: 22pt;
+
+                        h2 {
+                            text-align: left;
+                            padding: 12pt 0;
+                        }
+
+                        ul.western-medicine {
+                            li {
+                                border-bottom: 1px dashed #ccc;
+
+                                div {
+                                    span {
+                                        display: block;
+                                        min-height: 1px;
+                                        float: left;
+                                        line-height: 26pt;
+                                    }
+                                }
+                            }
+                        }
+
+                        ul.chinese-medicine {
+                            overflow: hidden;
+                            zoom: 1;
+
+                            li {
+                                float: left;
+                                margin-top: 10px;
+                                min-width: 24%;
+
+                                label {
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+
+                        ul.exam {
+                            font-size: 16pt;
+                            font-family: '微软雅黑';
+
+                            li {
+                                // height: 40px;
+                                width: 100%;
+                                margin-top: 5px;
+
+                                div {
+                                    width: 19%;
+                                    text-align: center;
+                                    display: inline-block;
+                                    line-height: 24pt;
+
+                                    span {
+                                        display: block;
+                                        min-height: 1px;
+                                        float: left;
+                                        line-height: 22pt;
+                                    }
+                                }
+                            }
+                        }
+
+
+                        .slash {
+                            height: 48pt;
+                            line-height: 48pt;
+                            font-size: 48pt;
+                            font-weight: normal;
+                            color: #333;
+                            margin-top: 5pt;
+                            margin-left: 50pt;
+                        }
+                    }
+                }
+
+                .footer {
+                    width: 100%;
+                    bottom: 32pt;
+
+                    .daily-setting {
+                        margin: 20px 0;
+                        padding: 20px 0;
+                        border-top: 1px solid #000;
+                    }
+
+                    .price {
+                        padding-bottom: 12pt;
+                        margin-bottom: 12pt;
+                        border-bottom: 1px solid #000;
+                        text-align: right;
+                    }
+
+                    .info {
+                        padding: 10pt 0;
+                        border-top: 1px solid #000;
+                        border-bottom: 1px solid #000;
+
+                        div {
+                            overflow: hidden;
+                            zoom: 1;
+                        }
+
+                        span {
+                            display: block;
+                            float: left;
+                            line-height: 22pt;
+                        }
+
+                        .w2 {
+                            span {
+                                width: 55%;
+                                display: inline-block;
+
+                                &:last-child {
+                                    width: 45%;
+                                }
+
+                                label {
+                                    font-weight: normal;
+                                    display: inline-block;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .isLine {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    // 打印收费发票
+    .printBill {
+        position: relative;
+        width: 21cm;
+        margin-top: 90px;
+        margin-left: 2cm;
+
+        .pro {
+            float: left;
+            margin: 10px 0;
+            font-size: 14px;
+            width: 7cm;
+            margin-left: 50px;
+
+            span {
+                margin-right: 20px;
+            }
+        }
+
+        .pro:nth-of-type(2) {
+            margin-left: 17px;
+        }
+
+        .detail {
+            height: 10.4cm;
+            clear: both;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 5px;
+            font-size: 14px;
+            border-collapse: collapse;
+
+            .title {
+                text-align: left;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            tr {
+                height: auto;
+                width: 50%;
+                float: left;
+                margin-bottom: 10px;
+            }
+
+            td,
+            th {
+                padding: 0 10px;
+                width: 60px;
+            }
+
+            td:nth-of-type(1),
+            th:nth-of-type(1) {
+                width: 200px;
+            }
+
+            td:nth-of-type(4),
+            th:nth-of-type(4) {
+                width: 80px;
+            }
+        }
+
+        p {
+            height: 20px;
+            position: absolute;
+            bottom: 0;
+            // left: 8px;
+        }
+
+        .table-info {
+            margin: 15px 0;
+            margin-right: 30px;
+            padding: 5px 0;
+            font-weight: normal;
+
+            div {
+                overflow: hidden;
+                zoom: 1;
+            }
+
+            span {
+                display: block;
+                float: left;
+                font-weight: normal;
+            }
+
+            .w2 {
+                span {
+                    width: 30%;
+
+                    label {
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    // 打印收费单小票
+    .printChargeDetail {
+        width: 6.5cm;
+        padding: 30px 0 15px 0;
+
+        h2 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 1.35em;
+            margin-bottom: 15px;
+        }
+
+        .infos {
+            p {
+                margin: 3px 0;
+            }
+        }
+
+        .details {
+            margin-top: 5px;
+            border-top: 1px dashed #ccc;
+            padding-top: 10px;
+
+            p {
+                text-align: center;
+
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                margin-top: 10px;
+
+                li {
+                    padding-bottom: 10px;
+
+                    div:nth-of-type(1) {
+                        margin: 0;
+                        margin-bottom: 10px;
+
+                        span {
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    div {
+                        margin: 10px 0;
+                        margin-left: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        span {
+                            display: inline-block;
+                            width: 180px;
+                        }
+
+                        small {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .count {
+                margin-top: 20px;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #ccc;
+
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .notice {
+                margin-top: 10px;
+
+                p {
+                    margin-top: 5px;
+                    text-align: left;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+
+    // 打印收费单
+    .printCharge {
+        height: 100%;
+        font-weight: normal;
+        padding: 10px 20px;
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+
+        .title {
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .patient_info {
+            border-bottom: 1px solid #333;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            width: 100%;
+
+            span {
+                float: left;
+                width: 25%;
+            }
+        }
+
+        table {
+            width: 100%;
+            margin-top: 5px;
+            font-size: 14px;
+            border-collapse: collapse;
+
+            tr:nth-of-type(1) {
+                background-color: #e4e4e4;
+                height: 40px;
+                text-align: left;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .tr-Title {
+                height: 40px;
+                font-weight: normal;
+                text-align: left;
+                margin: 10px 0;
+
+                th {
+                    margin: 0;
+                    font-weight: normal;
+                    padding: 0;
+                }
+            }
+
+            tr {
+                height: 30px;
+            }
+
+            td,
+            th {
+                padding: 0 10px;
+            }
+        }
+
+        .bottom-Info {
+            position: fixed;
+            width: 100%;
+            padding: 10px 20px;
+            bottom: 0;
+
+            .chargeInfo {
+                width: 100%;
+                border-top: 1px solid #1c100d;
+                border-bottom: 1px solid #1c100d;
+                height: 50px;
+                line-height: 50px;
+                margin-top: 30px;
+                font-size: 14px;
+
+                span {
+                    display: inline-block;
+                    width: 32%;
+                }
+
+                em {
+                    font-style: normal;
+                }
+            }
+
+            .bottomInfo {
+                width: 100%;
+                font-size: 14px;
+
+                p:nth-of-type(1) {
+                    height: 30px;
+                    line-height: 30px;
+                    // display: flex;
+                    // justify-content: space-between;
+                    margin-top: 20px;
+
+                    span {
+                        display: inline-block;
+                        width: 32%;
+                    }
+
+                    small {
+                        border-bottom: 1px solid #1c100d;
+                        width: 100px;
+                        display: inline-block;
+                        box-sizing: border-box;
+                        font-size: 14px;
+                        height: auto;
+                    }
+                }
+
+                p:nth-of-type(2) {
+                    height: 30px;
+                    line-height: 30px;
+                    margin-top: 5px;
+
+                    span {
+                        display: inline-block;
+                        width: 48%;
+                    }
+                }
+            }
+        }
+    }
+
+    // 打印收费票据单
+    .print-charge2 {
+        width: 120%;
+        margin-left: -10%;
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+        padding: 0 5px;
+        font-size: 14px;
+
+        .title {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .detail-info {
+            width: 100%;
+            padding: 0;
+
+            div {
+                overflow: hidden;
+                zoom: 1;
+                font-weight: normal;
+            }
+
+            span {
+                display: block;
+                float: left;
+                font-weight: normal;
+            }
+
+            .w1 {
+                margin: 10px 0;
+
+                span {
+                    width: 100%;
+                }
+            }
+
+            .w2 {
+                span {
+                    width: 50%;
+                }
+            }
+
+            .w3 {
+                span {
+                    width: 33.3333333%;
+                }
+            }
+        }
+
+        .table-info {
+            margin: 15px 0;
+            margin-right: 30px;
+            padding: 5px 0;
+            font-weight: normal;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+
+            div {
+                overflow: hidden;
+                zoom: 1;
+            }
+
+            span {
+                display: block;
+                float: left;
+                font-weight: normal;
+            }
+
+            .w1 {
+                margin: 10px 0;
+
+                span {
+                    width: 100%;
+
+                    label {
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            .w2 {
+                span {
+                    width: 50%;
+
+                    label {
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            .w3 {
+                span {
+                    width: 33.3333333%;
+                }
+            }
+        }
+    }
+
+    // 登记-挂号单
+    .patientRes {
+        width: 6.5cm;
+        padding: 30px 0 15px 0;
+
+        h2,
+        h3 {
+            text-align: center;
+            font-weight: normal;
+        }
+
+        h3 {
+            margin-top: 10px;
+        }
+
+        .main {
+            padding: 10px 0;
+
+            .content {
+                border-top: 1px solid #000000;
+                padding: 10px 0 0 5px;
+
+                .item {
+                    text-align: left;
+                    margin-bottom: 10px;
+
+                    label {
+                        padding: 10px 0;
+                        font-weight: 500;
+                        font-size: 14px;
+
+                        span {
+                            font-size: 12px;
+                            font-weight: normal;
+                        }
+                    }
+
+                    .beizhu {
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+
+    // 打印入库单
+    .printStorage {
+        font-size: 30px;
+
+        .first-title {
+            margin-left: -50%;
+            font-size: 40px;
+            padding-top: 40px;
+        }
+
+        .second-form {
+            width: 38%;
+            font-size: 20px;
+            height: 60px;
+            margin: 2px 34%;
+
+            ul li {
+                float: left;
+                margin: 5px 0;
+                font-size: 20px;
+                width: 33%;
+            }
+        }
+
+        .third-table {
+            width: 49% !important;
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            font-size: 24px;
+
+            table {
+                margin-left: -6%;
+                font-size: 20px;
+                margin-top: 5px;
+                border-collapse: collapse;
+
+                th td {
+                    font-weight: normal;
+                    text-align: center;
+                    font-size: 20px;
+                    border: 1px solid #999;
+                    padding: 5px;
+                }
+
+                th {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+
+    // 统计报表-进销存详情打印
+    .storage {
+        font-size: 9pt;
+        margin-left: -7%;
+        padding-top: 10pt;
+        transform: scale(0.85, 1);
+
+        h1 {
+            font-size: 16pt;
+            text-align: center;
+        }
+
+        ul {
+            font-size: 14px;
+            padding: 15px;
+
+            li {
+                float: left;
+                margin: 5px 0;
+                width: 33%;
+            }
+        }
+
+        table {
+            width: 100%;
+
+            td,
+            th {
+                text-align: center;
+                padding: 5px;
+                word-break: break-all;
+            }
+        }
+    }
+
+    //   打印盘点单
+    .printCheck {
+        width: 100%;
+        font-size: 12px;
+
+        .first-title {
+            font-size: 16px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .second-form {
+            width: 100%;
+            font-size: 12px;
+            margin: 20px;
+            height: auto;
+            overflow: hidden;
+
+            li {
+                float: left;
+                margin: 5px 1.5%;
+                width: 30%;
+            }
+        }
+
+        .third-table {
+            width: 100%;
+            margin: 10px 0;
+
+            table {
+
+                td,
+                th {
+                    text-align: center;
+                    padding: 5px;
+                    word-break: break-all;
+                }
+            }
+        }
+
+        .footer-time {
+            float: right;
+            margin: 10px 5px;
+        }
+    }
+
+    // 打印转诊存根、
+    .printStub {
+        width: 100%;
+        padding: 0 20px;
+
+        .title {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 23px;
+        }
+
+        .subTitle {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 23px;
+        }
+
+        .content {
+            width: 100%;
+            margin-top: 50px;
+
+            p {
+                span {
+                    margin-bottom: 40px;
+                    margin-top: 0;
+                    margin-left: 4%;
+
+                    em {
+                        float: left;
+                    }
+                }
+
+                small {
+                    overflow: hidden;
+                    display: block;
+                    padding: 0 5px;
+                }
+            }
+
+            em {
+                font-style: normal;
+            }
+
+            span {
+                font-size: 14px;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+
+            small {
+                font-size: 16px;
+                border-bottom: 1px solid #333;
+                height: 20px;
+                display: inline-block;
+                margin-bottom: 20px;
+                padding: 0 15px;
+                margin: 0 5px;
+            }
+        }
+
+        .footer {
+            margin-top: 50px;
+
+            p {
+                margin-top: 20px;
+                text-align: right;
+                margin-right: 100px;
+            }
+
+            p:nth-of-type(2) {
+                letter-spacing: 50px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    // 打印转诊单
+    .printTransfer {
+        padding: 0 25px;
+        font-size: 10px;
+
+        h1 {
+            font-weight: 700;
+            margin-top: 20px;
+            text-align: center;
+            color: #000;
+        }
+
+        .content {
+            margin-top: 15px;
+
+            .title {
+                color: #000;
+                font-weight: 600;
+                font-size: 17px;
+                margin-bottom: 5px;
+            }
+
+            div {
+                color: #000;
+
+                span {
+                    margin-bottom: 2px;
+                    display: inline-block;
+
+                    span {
+                        display: block;
+                    }
+
+                    &.w100 {
+                        width: 100%;
+                    }
+
+                    &.w50 {
+                        width: 50%;
+                    }
+
+                    &.w48 {
+                        width: 48%;
+                    }
+
+                    &.w24 {
+                        width: 24%;
+                    }
+                }
+            }
+        }
+    }
+}

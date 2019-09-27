@@ -1,0 +1,80 @@
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:after,
+.clearfix:before {
+    display: table;
+    content: "";
+}
+
+.text-left,
+.tl {
+    text-align: left;
+}
+
+.text-center,
+.tc {
+    text-align: center;
+}
+
+.text-right,
+.tr {
+    text-align: right;
+}
+
+span {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.p-relative {
+    position: relative;
+}
+
+.pre-relative {
+    position: relative;
+    padding-left: 30px !important
+}
+
+.name-nowrap {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+}
+
+.toolbar {
+    margin: 20px 0;
+}
+
+.tabs-right{
+  float: right;
+  z-index:9;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.icon-vip {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 18px;
+    background: url('~@/assets/icon_images/icon-vip.png') no-repeat;
+    background-size: 32px 18px;
+}
