@@ -17,7 +17,11 @@ import commonUtil from './utils/index'
 import './icons' // icon
 import './permission' // permission control
 
-import * as filters from './filters' // global filterstest
+<<<<<<< HEAD
+import * as filters from './filters' // global filters what a fuck~
+=======
+import * as filters from './filters' // global filters
+>>>>>>> sunsj
 import _ from 'lodash'
 Vue.prototype._ = _
 Vue.use(ElementUI, {
